@@ -11,17 +11,20 @@
 ## Tutorial
 
 ```bash
-$ export GITHUB_USERNAME=<имя_пользователя>
-$ export GIST_TOKEN=<сохраненный_токен>
-$ alias edit=<nano|vi|vim|subl>
+pcd21@ltsp221:~$ export GITHUB_USERNAME=DarthBarada
+pcd21@ltsp221:~$ export GIST_TOKEN=94f6b47430b12af896a72508a8272fc97d838b94
+pcd21@ltsp221:~/DarthBarada/workspace$ pwd
+/home/pcd21/DarthBarada/workspace
 ```
 
 ```ShellSession
-$ mkdir -p ${GITHUB_USERNAME}/workspace
-$ cd ${GITHUB_USERNAME}/workspace
+pcd21@ltsp221:~$ mkdir -p DarthBarada/workspace
+pcd21@ltsp221:~$ cd DarthBarada/workspace
 $ pwd
-$ cd ..
+/home/pcd21/DarthBarada/workspace
+pcd21@ltsp221:~/DarthBarada/workspace$ cd
 $ pwd
+/home/pcd21
 ```
 
 ```ShellSession
@@ -34,16 +37,31 @@ $ cd workspace
 ```ShellSession
 # Debian
 $ wget https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz
+--2019-03-04 18:34:23--  https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz
+Распознаётся nodejs.org (nodejs.org)… 104.20.22.46, 104.20.23.46, 2606:4700:10::6814:172e, ...
+Подключение к nodejs.org (nodejs.org)|104.20.22.46|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+Длина: 9356460 (8,9M) [application/x-xz]
+Сохранение в: «node-v6.11.5-linux-x64.tar.xz»
+
+node-v6.11.5-linux-x64.tar. 100%[=========================================>]   8,92M  7,24MB/s    in 1,2s    
+
+2019-03-04 18:34:25 (7,24 MB/s) - «node-v6.11.5-linux-x64.tar.xz» сохранён [9356460/9356460]
+
 $ tar -xf node-v6.11.5-linux-x64.tar.xz
+rm -rf node-v6.11.5-linux-x64.tar.xz
 $ rm -rf node-v6.11.5-linux-x64.tar.xz
 $ mv node-v6.11.5-linux-x64 node
 ```
 
 ```ShellSession
 $ ls node/bin
-$ echo ${PATH}
+node  npm
+pcd21@ltsp221:~/workspace$ echo ${PATH}
+/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
 $ export PATH=${PATH}:`pwd`/node/bin
 $ echo ${PATH}
+/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/pcd21/workspace/node/bin
 $ mkdir scripts
 $ cat > scripts/activate<<EOF
 export PATH=\${PATH}:`pwd`/node/bin
@@ -53,13 +71,21 @@ $ source scripts/activate
 
 ```ShellSession
 $ npm install -g gistup
+/home/pcd21/workspace/node/bin/gistup-open -> /home/pcd21/workspace/node/lib/node_modules/gistup/bin/gistup-open
+/home/pcd21/workspace/node/bin/gistup-rename -> /home/pcd21/workspace/node/lib/node_modules/gistup/bin/gistup-rename
+/home/pcd21/workspace/node/bin/gistup -> /home/pcd21/workspace/node/lib/node_modules/gistup/bin/gistup
+/home/pcd21/workspace/node/lib
+└─┬ gistup@0.1.3 
+  ├─┬ optimist@0.3.7 
+  │ └── wordwrap@0.0.3 
+  └── queue-async@1.2.1 
 $ ls node/bin
 ```
 
 ```ShellSession
 $ cat > ~/.gistup.json <<EOF
 {
-  "token": "${GIST_TOKEN}"
+  "token": "94f6b47430b12af896a72508a8272fc97d838b94"
 }
 EOF
 ```
