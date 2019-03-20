@@ -4,28 +4,28 @@
 
 ## Tasks
 
-- [ ] 1. Ознакомиться со ссылками учебного материала
-- [ ] 2. Выполнить инструкцию учебного материала
-- [ ] 3. Составить отчет и отправить ссылку личным сообщением в **Slack**
+- [+] 1. Ознакомиться со ссылками учебного материала
+- [+] 2. Выполнить инструкцию учебного материала
+- [+] 3. Составить отчет и отправить ссылку личным сообщением в **Slack**
 
 ## Tutorial
 
 ```bash
-$ export GITHUB_USERNAME=<имя_пользователя>
-$ export GIST_TOKEN=<сохраненный_токен>
-$ alias edit=<nano|vi|vim|subl>
+$ export GITHUB_USERNAME=DarthBarada # Устанавливаем значение переменной окружения GITHUB_USERNAME
+$ export GIST_TOKEN=94f6b47430b12af896a72508a8272fc97d838b94 # Устанавливаем значение переменной окружения GIST_TOKEN
+$ alias edit=nano # выбираем тип редактора
 ```
 
 ```ShellSession
-$ mkdir -p ${GITHUB_USERNAME}/workspace
-$ cd ${GITHUB_USERNAME}/workspace
-$ pwd
-$ cd ..
-$ pwd
+$ mkdir -p DarthBarada/workspace # создаем папку DarthBarada с подкапкой workspace
+$ cd DarthBarada/workspace # заходим в нее
+$ pwd # выводим полный путь до неё
+$ cd .. # заходим в директорию на 1 уровень выше
+$ pwd # выводим полный путь до папки
 ```
 
-```ShellSession
-$ mkdir -p workspace/tasks/
+```ShellSession # создаем в папке workspace паки tasks,projects и reports, и заходим в workspace
+$ mkdir -p workspace/tasks/ 
 $ mkdir -p workspace/projects/
 $ mkdir -p workspace/reports/
 $ cd workspace
@@ -33,31 +33,28 @@ $ cd workspace
 
 ```ShellSession
 # Debian
-$ wget https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz
-$ tar -xf node-v6.11.5-linux-x64.tar.xz
-$ rm -rf node-v6.11.5-linux-x64.tar.xz
-$ mv node-v6.11.5-linux-x64 node
+$ wget https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz # скачиваем архив из интернета
+$ tar -xf node-v6.11.5-linux-x64.tar.xz # распаковываем его
+$ rm -rf node-v6.11.5-linux-x64.tar.xz # удаляем архив, но не папку
+$ mv node-v6.11.5-linux-x64 node # переименовываем папку node-v6.11.5-linux-x64 в node
 ```
 
 ```ShellSession
-$ ls node/bin
-$ echo ${PATH}
-$ export PATH=${PATH}:`pwd`/node/bin
-$ echo ${PATH}
-$ mkdir scripts
-$ cat > scripts/activate<<EOF
-export PATH=\${PATH}:`pwd`/node/bin
-EOF
-$ source scripts/activate
+$ ls node/bin # выводим содержимое папки node/bin
+$ echo ${PATH} # выводим переменную среды
+$ export PATH=${PATH}:`pwd`/node/bin #добавляем к ней путь до папки node/bin
+$ echo ${PATH} # выводим переменную среды
+$ mkdir scripts # создаем папку scripts
+$ cat > scripts/activate<<EOF # создаем в папке scripts текстовый документ activate и добавляем в него код
 ```
 
 ```ShellSession
-$ npm install -g gistup
-$ ls node/bin
+$ npm install -g gistup # скачиваем gistup
+$ ls node/bin # выводим содержимое папки node/bin
 ```
 
 ```ShellSession
-$ cat > ~/.gistup.json <<EOF
+$ cat > ~/.gistup.json <<EOF # редактируем файл gistup.json 
 {
   "token": "${GIST_TOKEN}"
 }
@@ -67,13 +64,13 @@ EOF
 ## Report
 
 ```ShellSession
-$ export LAB_NUMBER=01
-$ git clone https://github.com/tp-labs/lab${LAB_NUMBER} tasks/lab${LAB_NUMBER}
-$ mkdir reports/lab${LAB_NUMBER}
-$ cp tasks/lab${LAB_NUMBER}/README.md reports/lab${LAB_NUMBER}/REPORT.md
-$ cd reports/lab${LAB_NUMBER}
-$ edit REPORT.md
-$ gistup -m "lab${LAB_NUMBER}" # enter: yes↵
+$ export LAB_NUMBER=01 # Устанавливаем значение переменной окружения LAB_NUMBER
+$ git clone https://github.com/tp-labs/lab01 tasks/lab01 # создаем копию из https://github.com/tp-labs/lab01 в директорию tasks/lab01
+$ mkdir reports/lab01 # создаем папку reports/lab01
+$ cp tasks/lab01/README.md reports/lab01/REPORT.md # копируем README.md из tasks/lab01 в reports/lab01
+$ cd reports/lab01 # заходим в папку reports/lab01
+$ edit REPORT.md # редактируем REPORT.md
+$ gistup -m "lab01" # enter: yes↵ 
 ```
 
 ## Links
