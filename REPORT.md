@@ -4,9 +4,9 @@
 
 ## Tasks
 
-- [+] 1. Ознакомиться со ссылками учебного материала
-- [+] 2. Выполнить инструкцию учебного материала
-- [+] 3. Составить отчет и отправить ссылку личным сообщением в **Slack**
+- [X] 1. Ознакомиться со ссылками учебного материала
+- [X] 2. Выполнить инструкцию учебного материала
+- [X] 3. Составить отчет и отправить ссылку личным сообщением в **Slack**
 
 ## Tutorial
 
@@ -34,6 +34,17 @@ $ cd workspace
 ```ShellSession
 # Debian
 $ wget https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz # скачиваем архив из интернета
+--2019-05-26 20:24:57--  https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz
+Распознаётся nodejs.org (nodejs.org)… 104.20.22.46, 104.20.23.46, 2606:4700:10::6814:162e, ...
+Подключение к nodejs.org (nodejs.org)|104.20.22.46|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+Длина: 9356460 (8,9M) [application/x-xz]
+Сохранение в: «node-v6.11.5-linux-x64.tar.xz»
+
+node-v6.11.5-linux- 100%[===================>]   8,92M  3,57MB/s    за 2,5s    
+
+2019-05-26 20:25:00 (3,57 MB/s) - «node-v6.11.5-linux-x64.tar.xz» сохранён [9356460/9356460]
+
 $ tar -xf node-v6.11.5-linux-x64.tar.xz # распаковываем его
 $ rm -rf node-v6.11.5-linux-x64.tar.xz # удаляем архив, но не папку
 $ mv node-v6.11.5-linux-x64 node # переименовываем папку node-v6.11.5-linux-x64 в node
@@ -41,9 +52,12 @@ $ mv node-v6.11.5-linux-x64 node # переименовываем папку nod
 
 ```ShellSession
 $ ls node/bin # выводим содержимое папки node/bin
+node  npm
 $ echo ${PATH} # выводим переменную среды
+/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 $ export PATH=${PATH}:`pwd`/node/bin #добавляем к ней путь до папки node/bin
 $ echo ${PATH} # выводим переменную среды
+/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/darthbarada/DarthBarada/workspace/node/bin
 $ mkdir scripts # создаем папку scripts
 $ cat > scripts/activate<<EOF # создаем в папке scripts текстовый документ activate и добавляем в него код
 export PATH=\${PATH}:`pwd`/node/bin
@@ -53,7 +67,16 @@ $ source scripts/activate
 
 ```ShellSession
 $ npm install -g gistup # скачиваем gistup
+/home/darthbarada/DarthBarada/workspace/node/bin/gistup -> /home/darthbarada/DarthBarada/workspace/node/lib/node_modules/gistup/bin/gistup
+/home/darthbarada/DarthBarada/workspace/node/bin/gistup-open -> /home/darthbarada/DarthBarada/workspace/node/lib/node_modules/gistup/bin/gistup-open
+/home/darthbarada/DarthBarada/workspace/node/bin/gistup-rename -> /home/darthbarada/DarthBarada/workspace/node/lib/node_modules/gistup/bin/gistup-rename
+/home/darthbarada/DarthBarada/workspace/node/lib
+└─┬ gistup@0.1.3 
+  ├─┬ optimist@0.3.7 
+  │ └── wordwrap@0.0.3 
+  └── queue-async@1.2.1 
 $ ls node/bin # выводим содержимое папки node/bin
+gistup	gistup-open  gistup-rename  node  npm
 ```
 
 ```ShellSession
